@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <!-- Github page Navbar -->
+        <nav class="nav-container">
+       <aside class="mobile-icons">
+        <div class="large-none"><i class="fas fa-bars"></i> </div>
+        <div class="large-none"><i class="fab fa-github"></i></div>
+        <div class="large-none"><i class="far fa-bell"></i></div>
+       </aside>
+       
+       <ul class="mobile-nav large-none">
+            <form action="">
+                    <input class="" type="text" placeholder="Set status">
+            </form>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Pull requests</a></li>
+            <li><a href="#">Issues</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><img src="" alt=""><a href="#">Kemmie001</a></li>
+            <a href="">Sign out</a>
+        </ul>          
+        <aside class="right none">
+          <i class="fab fa-github"></i>
+                    <form  action="" class="search">
+                            <span class="small-box">/</span>
+                        <input type="text" class="search-box" placeholder="Search or jump to...">
+                    
+                    </form>
+                    <a href="">Pulls</a>
+                    <a href="">Issues</a>
+                    <a href="">Marketplace</a>
+                    <a  href="">Explore</a>
+            </aside>
+            <aside class="left none">
+                <span><i class="far fa-bell"></i></span>
+                <span class="none"><i class="fas fa-plus"></i><i class="fas fa-caret-down"></i></span>
+                <span class="none"><i class="fas fa-user"></i><i class="fas fa-caret-down"></i></span>
+            </aside>
+        </nav>
+        
+    </header>
+    <nav class="repo-nav none">
+            <ul>
+                <li><i class="fas fa-book-open"></i> Overview</li>
+                <li class="repo-nav-item"><i class="fas fa-book"></i> Repositories</li>
+                <li><i class="far fa-square"></i> Projects</li>
+                <li><i class="fas fa-cube"></i> Packages</li>
+            </ul>
+    </nav>
+    <section class="main-container">
+        <article class="grow">
+                <div class="intro">
+                        <div class="avatar-image"><img id="avatar" src="" alt=""></div>
+                        <div class="name">
+                        <h1 id="name"></h1>
+                        <p class="gray" id="login"></p>
+                        </div>
+                    </div>
+                    <form action="" class="repo-form large-none">
+                            <input class="status" type="text" placeholder="Set status">
+                    </form>
+                    <div class="intro">
+                        <p id="bio"></p>
+                    </div>
+                    <input class="edit" type="button" value="Edit Profile">
+                    <div>
+                        <span class="large-none">
+                        <i class="far fa-envelope"></i>
+                        <a class="link-mail link" id="email" href="mailto:oluwakemisola757@gmail.com"></a>
+                        </span><br>
+                        <i class="fas fa-user-friends"></i> 
+                        <a class="link" href="">5 followers</a> . <a class="link" href="">15 following</a> . <a class="link" href=""><i class="far fa-star"></i> 5</a>
+                    </div>
+                    <div class="repo-form none">
+                            <p><i class="fas fa-map-marker-alt"></i> LAGOS</p>
+                           <i class="far fa-envelope"></i> <a class="link-mail link" href="mailto:oluwakemisola757@gmail.com">Oluwakemisola757@gmail.com</a>
+                            
+                            <i class="fab fa-twitter"></i><a class="link-mail link" href="https://www.twitter.com/Kemmie011" id="twitter">@Kemmie001</a>
+                    </div>
+        </article>
+        <main class="repo">
+                <nav class="repo-nav large-none">
+                        <ul>
+                            <li>Overview</li>
+                            <li class="repo-nav-item">Repositories</li>
+                            <li>Projects</li>
+                            <li>Packages</li>
+                        </ul>
+                </nav>
+               <aside class="repo-boxes">
+                    <form action="" class="large-flex">
+                            <input class="status find"  type="text" placeholder="Find a repository...">
+                                    <select class="select popup1" name="type" id="">
+                                            <option value="" hidden>Type: All</option>
+                                        </select>
+                                        <div class="container-frame">
+                                            <ul class="large-style">
+                                                <li class="border-bottom"><h3>Select type <i class="fas fa-times"></i></h3></li>
+                                                <li class="border-bottom">All</li>
+                                                <li class="border-bottom">Public</li>
+                                                <li class="border-bottom">Private</li>
+                                                <li class="border-bottom">Sources</li>
+                                                <li class="border-bottom">Forks</li>
+                                                <li class="border-bottom">Archived</li>
+                                                <li>Mirrors</li>
+                                            </ul>
+                                        </div>
+                                    <select class="select1 select popup2" name="type" id="">
+                                            <option value="" hidden>Language: All</option>
+                                        </select>
+                                        <div class="second">
+                                            <ul class="large-style">
+                                                <li class="border-bottom"><h3>Select language <i class="fas second-times fa-times"></i></h3></li>
+                                                <li class="border-bottom">All</li>
+                                                <li class="border-bottom">HTML</li>
+                                                <li class="border-bottom">CSS</li>
+                                                <li class="border-bottom">JavaScript</li>
+                                                <li>Vue</li>
+                                            </ul>
+                                        </div>
+                                    <button class="green"><i class="fas fa-book"></i> New</button>
+                        </form>
+                    <div id="card-container">
+                        
+                    </div>
+               </aside>
+            </main>
+    </section>
+    
+</body>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+<script src="app.js"></script>
+</html>
