@@ -482,13 +482,6 @@ img{
     .second > ul{
         margin-left: 43%;
     }
-    /* .small-box{ */
-        /* left: 21.5%; */
-    /* } */
-    /* .container-frame, .second{
-        /* display: flex; */
-        /* background-color: rgba(0, 0, 0, 0.4); 
-    } */
 }
 @media screen and (max-width:1025px){
     .main-container{
