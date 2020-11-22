@@ -1,3 +1,4 @@
+// Mobile Screen NavBar Display
 const navBar = document.querySelector('.fa-bars')
 
 loadEvent()
@@ -10,6 +11,7 @@ function  displayNav() {
 }
 
 
+// Naming Variables
 const postRepo = document.getElementById('card-container')
 
 let el = function (element) {
@@ -22,8 +24,11 @@ bio = el('bio'),
 image = el('avatar')
 twitterUsername = el('twitter')
 email = el('email')
+emailLarge = el('email-2')
+lagos = el('lagos')
 
-const getToken = "3ec9a969b1fb51174078fba4c1c2a3ce734cba37"
+// To fetch Data from Github API using GraphQL
+const getToken = "db33968bec834e0555fecd065ade0555fe17fc45"
 
 fetch('https://api.github.com/graphql', {
     method: 'POST',
@@ -39,12 +44,6 @@ fetch('https://api.github.com/graphql', {
               location
               bio
               avatarUrl
-              followers{
-                totalCount
-              }
-              following{
-                totalCount
-              }
               location
               twitterUsername
               email
@@ -67,23 +66,36 @@ fetch('https://api.github.com/graphql', {
  })
 .then(res => res.json())
 .then(data => {
+
+  // To post data from the API into the DOM
     name.textContent = data.data.viewer.name;
     login.textContent = data.data.viewer.login;
-    bio.textContent = data.data.viewer.bio
+    bio.textContent = data.data.viewer.bio;
+    twitterUsername.textContent = data.data.viewer.twitterUsername
     image.src = data.data.viewer.avatarUrl
-    email.textContent = data.data.viewer.email   
-    
+    email.textContent = data.data.viewer.email
+    emailLarge.textContent = data.data.viewer.email   
+    lagos.textContent= data.data.viewer.location
+
+    // Loop throught Each Repository Node
     data.data.viewer.repositories.nodes.forEach(node => {
+
+      // Change Date from ISOstring to YYYY/MM/DD
        let dateStr = node.updatedAt.substr(0, 10)
+
+      //  Assign Primary Keys to Variables
        let color = node.primaryLanguage.color
        let language = node.primaryLanguage.name;
+
+      // Change Repository Description Null to Empy String
        function removeNone() {
          if (node.description == null){
           node.description = ""
          }
        }
        removeNone()
-       
+
+      //  To post Repository into the DOM
         postRepo.innerHTML +=`
         <div class="card">
                 <div class="repo-details">
@@ -104,6 +116,8 @@ fetch('https://api.github.com/graphql', {
       })   
     })
 
+
+    // Type of Repository and Language Popup Logic
 
     const popup = document.querySelector('.popup1')
     const hide = document.querySelector('.fa-times')
