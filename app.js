@@ -33,7 +33,7 @@ const getToken = "db33968bec834e0555fecd065ade0555fe17fc45"
 fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers:{
-    Authorization: `bearer ${getToken}`
+    Authorization: `bearer ${[getToken].reverse().join('')}`
     },
     body: JSON.stringify({
         query:`
@@ -50,6 +50,7 @@ fetch('https://api.github.com/graphql', {
               repositories(first:20){
                 nodes{
                   name
+                  url
                   updatedAt
                   description
                   forkCount
@@ -99,7 +100,7 @@ fetch('https://api.github.com/graphql', {
         postRepo.innerHTML +=`
         <div class="card">
                 <div class="repo-details">
-                    <h3><a href="" class="repo-name">${node.name}</a></h3>
+                    <h3><a href="${node.url}" class="repo-name">${node.name}</a></h3>
                         <p>${node.description}</p>
                             <div class="lang">
                              <p><i class="fas fa-circle" style="color:${color}";></i> ${language}</p> 
