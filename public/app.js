@@ -1,3 +1,4 @@
+
 // Mobile Screen NavBar Display
 const navBar = document.querySelector('.fa-bars')
 
@@ -17,7 +18,8 @@ const postRepo = document.getElementById('card-container')
 let el = function (element) {
         return document.getElementById(element);
 }
-const 
+
+const
 name = el('name'),
 login = el('login'),
 bio = el('bio'),
@@ -28,17 +30,17 @@ emailLarge = el('email-2')
 lagos = el('lagos')
 
 // To fetch Data from Github API using GraphQL
-const getToken = "db33968bec834e0555fecd065ade0555fe17fc45"
 
-fetch('https://api.github.com/graphql', {
+
+fetch('/github', {
     method: 'POST',
     headers:{
-    Authorization: `bearer ${[getToken].reverse().join('')}`
+    "Content-Type":"application/json"
     },
     body: JSON.stringify({
-        query:`
+        query: `
        query { 
-            viewer { 
+            user(login: "Kemmie001") { 
               login
               name
               location
@@ -67,24 +69,24 @@ fetch('https://api.github.com/graphql', {
  })
 .then(res => res.json())
 .then(data => {
-
-  // To post data from the API into the DOM
-    name.textContent = data.data.viewer.name;
-    login.textContent = data.data.viewer.login;
-    bio.textContent = data.data.viewer.bio;
-    twitterUsername.textContent = data.data.viewer.twitterUsername
-    image.src = data.data.viewer.avatarUrl
-    email.textContent = data.data.viewer.email
-    emailLarge.textContent = data.data.viewer.email   
-    lagos.textContent= data.data.viewer.location
+//  console.log(data.data.data.user.bio)
+  // // To post data from the API into the DOM
+    name.textContent = data.data.data.user.name;
+    login.textContent = data.data.data.user.login;
+    bio.textContent = data.data.data.user.bio;
+    twitterUsername.textContent = data.data.data.user.twitterUsername
+    image.src = data.data.data.user.avatarUrl
+    email.textContent = data.data.data.user.email
+    emailLarge.textContent = data.data.data.user.email   
+    lagos.textContent= data.data.data.user.location
 
     // Loop throught Each Repository Node
-    data.data.viewer.repositories.nodes.forEach(node => {
+    data.data.data.user.repositories.nodes.forEach(node => {
 
       // Change Date from ISOstring to YYYY/MM/DD
        let dateStr = node.updatedAt.substr(0, 10)
 
-      //  Assign Primary Keys to Variables
+  //     //  Assign Primary Keys to Variables
        let color = node.primaryLanguage.color
        let language = node.primaryLanguage.name;
 
@@ -116,8 +118,6 @@ fetch('https://api.github.com/graphql', {
     </div>`
       })   
     })
-
-
     // Type of Repository and Language Popup Logic
 
     const popup = document.querySelector('.popup1')
