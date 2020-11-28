@@ -3,6 +3,8 @@ const app = express();
 const fetch = require('node-fetch');
 require('dotenv').config();
 
+const port = process.env.PORT || 3000
+
 app.listen(3000, ()=> {
      console.log("listening at 3000")
 });
